@@ -1,0 +1,11 @@
+{
+  "name": "davisgig.org",
+  "version": "0.0.1",
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-jade": "^1.0.0",
+    "gulp-livereload": "^2.1.1",
+    "gulp-watch": "^0.6.9",
+    "main-bower-files": "^2.7.0"
+  }
+}
