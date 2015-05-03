@@ -82,42 +82,10 @@ html(lang="en")
 
       script(src="/vendor/js/jquery.js")
       script(src="/vendor/js/materialize.js")
+      script(src="/site.js")
 
       script.
          document.write('<script src="http://'
              + (location.host || 'localhost').split(':')[0]
              + ':35729/livereload.js"></'
              + 'script>')
-
-      script.
-         $(document).ready(function() {
-            $('#learn-more').hide();
-            $('.parallax').parallax();
-          });
-
-          function scrollToDiv(elem, delay) {
-            function _move_to_top(elem) {
-               $('html,body').animate({
-                  scrollTop: $(elem).offset().top
-               }, 1000);
-            }
- 
-            if (delay) {
-               setTimeout(function() {
-                  _move_to_top(elem);
-               }, delay);
-            } else {
-               _move_to_top(elem);
-            }
-         }
-
-         function showMore() {
-            console.log("showMore");
-            $('#learn-more').fadeIn(function() {
-               scrollToDiv("#learn-more", 500);
-            });
-         } 
-
-         function showModal() {
-            $('#sign-up-modal').openModal();
-         }

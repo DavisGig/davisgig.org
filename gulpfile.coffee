@@ -1,9 +1,11 @@
 gulp = require 'gulp'
 
 jade     = require 'gulp-jade'
+coffee   = require 'gulp-coffee'
 
 livereload = require 'gulp-livereload'
 watch      = require 'gulp-watch'
+gutil      = require 'gulp-util'
 
 mainBowerFiles = require 'main-bower-files'
 
@@ -36,17 +38,25 @@ gulp.task 'build:jade', ->
       .pipe(gulp.dest('build'))
       .pipe(livereload())
 
+gulp.task 'build:coffee', ->
+
+   gulp.src('src/site.coffee')
+      .pipe(coffee(bare: true).on('error', gutil.log))
+      .pipe(gulp.dest('build'))
+      .pipe(livereload())
+
 gulp.task 'build:css', ->
    gulp.src('src/*.css')
       .pipe(gulp.dest('build'))
       .pipe(livereload())
 
-gulp.task 'build', ['build:jade', 'build:css']
+gulp.task 'build', ['build:jade', 'build:coffee', 'build:css']
 
 
 gulp.task 'watch', ->
-   gulp.watch 'src/**/*.jade', ['build:jade']
-   gulp.watch 'src/**/*.css',  ['build:css']
+   gulp.watch 'src/**/*.jade',   ['build:jade']
+   gulp.watch 'src/**/*.coffee', ['build:coffee']
+   gulp.watch 'src/**/*.css',    ['build:css']
 
    livereload.listen()
 
