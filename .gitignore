@@ -1,0 +1,9 @@
+# npm and bower components
+node_modules/
+bower_components/
+
+# generated files
+build/
+
+# vim files
+*.swp
