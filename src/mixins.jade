@@ -1,0 +1,21 @@
+mixin scrollToButton(elem)
+   .center
+      a.btn-floating.btn-large.light-blue(onclick="scrollToDiv('#{elem}')")
+         .mdi-navigation-expand-more
+
+mixin parallaxImage(src)
+   .parallax-container
+      .parallax
+         img(src="#{src}")
+
+mixin contentSection(inverse)
+   if inverse
+      .row.light-blue.grey-text.text-lighten-3.inverse(id!=attributes.id)
+         .container
+            .col.s8.offset-s2
+               block
+   else
+      .section.white(id!=attributes.id)
+         .row.container
+            .col.s8.offset-s2
+               block

@@ -1,0 +1,108 @@
+body {
+   background: #eee;
+}
+nav {
+   padding: 10px 20px;
+   min-height: 80px;
+}
+
+.parallax-container {
+   height: 500px;
+}
+
+.parallax img {
+   width: 100%;
+}
+
+@font-face {
+   font-family: 'Roboto Thin';
+   src: url('/font/roboto/Roboto-Thin.ttf');
+}
+
+h2.header, h4.header {
+   font-family: 'Roboto Thin';
+}
+
+dt {
+   font-weight: bold;
+}
+
+header .card {
+   margin-top: 80px;
+}
+
+header .card-title {
+   width: 100%;
+   background: #000;
+   opacity: 0.7;
+}
+
+header .card-content p {
+   font-family: 'Roboto Thin';
+   font-size: 14pt;
+}
+
+footer {
+   font-size: 12px;
+   padding: 20px 60px;
+}
+
+#bring-to-davis > .row:last-child {
+   margin-bottom: -20px;
+   padding: 40px 0;
+}
+
+.intro {
+   background-image: url('/img/background-4.jpg');
+   background-position: center;
+   background-color: #000;
+   background-size: cover;
+   min-height: 600px; 
+   position: relative;
+   padding-bottom: 0;
+}
+
+.intro h1 {
+   background: #000;
+   opacity: 0.7;
+   vertical-align: bottom;
+   position: absolute;
+   width: 100%;
+   bottom: 0;
+   padding: 40px;
+   margin: 0;
+}
+
+/* label color */
+.inverse .input-field label {
+   color: #fff;
+}
+
+.inverse .input-field input[type=text] {
+   border-bottom: #fff;
+   box-shadow: 0 1px 0 0 #fff;
+}
+/* label focus color */
+.inverse .input-field input[type=text]:focus + label {
+   color: #80d8ff;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+   border-bottom: 1px solid #80d8ff;
+   box-shadow: 0 1px 0 0 #80d8ff;
+}
+/* valid color */
+.input-field input[type=text].valid {
+   border-bottom: 1px solid #80d8ff;
+   box-shadow: 0 1px 0 0 #80d8ff;
+}
+/* invalid color */
+/*.inverse .input-field input[type=text].invalid {*/
+   /*border-bottom: 1px solid #80d8ff;*/
+   /*box-shadow: 0 1px 0 0 #80d8ff;*/
+/*}*/
+/* icon prefix focus color */
+.input-field .prefix.active {
+   color: #80d8ff;
+}

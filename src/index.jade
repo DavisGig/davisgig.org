@@ -1,0 +1,123 @@
+include mixins
+
+doctype html
+html(lang="en")
+   head
+      meta(charset="utf-8")
+      title davisgig.org
+
+      link(rel="stylesheet" href="/vendor/css/materialize.css")
+      link(rel="stylesheet" href="/style.css")
+
+   body
+      nav.light-blue
+         .nav-wrapper
+             a.left.brand-logo(href="#") 
+               | Davis
+               b Gig
+             ul.right
+                li: a(onclick="showModal()") GET INVOLVED!
+
+      header.row
+         .intro.white-text
+            h1 
+               | Community-owned Fiber Internet
+               br
+               small Future Worth Working For
+               
+         .row
+            .col.s10.offset-s1
+               h4.header.
+                  Communities across the country are bringing fast,
+                  affordable internet into their homes and we can too. By investing in a
+                  community-owned fiber optic network, we can support innovation, safeguard user
+                  privacy, encourage service competition and provide a fast, reliable internet
+                  connection to our homes, businesses and schools.
+
+               br
+               p.center 
+                   button.btn.btn-large.light-blue(onclick="showMore()") 
+                     i.mdi-action-info.left
+                     | Learn More
+
+                   button.btn.btn-large.light-blue(onclick="showModal()")
+                     i.mdi-toggle-check-box.left
+                     | Sign Up
+
+      section#learn-more
+         include content/what-is-community-fiber
+
+         +parallaxImage("/img/background-5.jpg")
+         
+         include content/good-for-davis 
+
+         +parallaxImage("/img/background-6.jpg")
+
+         include content/bring-fiber-to-davis
+
+
+      footer.light-blue-text.text-lighten-3
+         ul
+            li Made with &hearts; in Davis, CA
+            li &copy; 2015 DavisGig
+
+
+      .modal#sign-up-modal
+         .modal-content
+            h4 
+               | Interested? 
+               small Let us know!
+ 
+            p. 
+               Davis residents, if you would be willing to vote for this,
+               please register your support, and we'll keep you up-to-date with
+               news as this effort moves forward. DavisGig is a
+               community-driven effort. 
+
+            .row
+               include partials/sign-up-form
+
+         .modal-footer
+            btn.btn.modal-action.modal-close.waves-effect.light-blue Sign Me Up
+
+      script(src="/vendor/js/jquery.js")
+      script(src="/vendor/js/materialize.js")
+
+      script.
+         document.write('<script src="http://'
+             + (location.host || 'localhost').split(':')[0]
+             + ':35729/livereload.js"></'
+             + 'script>')
+
+      script.
+         $(document).ready(function() {
+            $('#learn-more').hide();
+            $('.parallax').parallax();
+          });
+
+          function scrollToDiv(elem, delay) {
+            function _move_to_top(elem) {
+               $('html,body').animate({
+                  scrollTop: $(elem).offset().top
+               }, 1000);
+            }
+ 
+            if (delay) {
+               setTimeout(function() {
+                  _move_to_top(elem);
+               }, delay);
+            } else {
+               _move_to_top(elem);
+            }
+         }
+
+         function showMore() {
+            console.log("showMore");
+            $('#learn-more').fadeIn(function() {
+               scrollToDiv("#learn-more", 500);
+            });
+         } 
+
+         function showModal() {
+            $('#sign-up-modal').openModal();
+         }
