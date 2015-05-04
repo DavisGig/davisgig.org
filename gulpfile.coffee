@@ -1,6 +1,7 @@
 gulp = require 'gulp'
 
 jade     = require 'gulp-jade'
+sass     = require 'gulp-sass'
 coffee   = require 'gulp-coffee'
 
 livereload = require 'gulp-livereload'
@@ -45,18 +46,19 @@ gulp.task 'build:coffee', ->
       .pipe(gulp.dest('build'))
       .pipe(livereload())
 
-gulp.task 'build:css', ->
-   gulp.src('src/*.css')
+gulp.task 'build:scss', ->
+   gulp.src('src/*.scss')
+      .pipe(sass())
       .pipe(gulp.dest('build'))
       .pipe(livereload())
 
-gulp.task 'build', ['build:jade', 'build:coffee', 'build:css']
+gulp.task 'build', ['build:jade', 'build:coffee', 'build:scss']
 
 
 gulp.task 'watch', ->
    gulp.watch 'src/**/*.jade',   ['build:jade']
    gulp.watch 'src/**/*.coffee', ['build:coffee']
-   gulp.watch 'src/**/*.css',    ['build:css']
+   gulp.watch 'src/**/*.scss',   ['build:scss']
 
    livereload.listen()
 

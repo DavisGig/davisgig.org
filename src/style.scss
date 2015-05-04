@@ -1,0 +1,65 @@
+@import "../bower_components/materialize/sass/components/mixins";
+@import "../bower_components/materialize/sass/components/color";
+
+$primary-color: color("light-blue", "base");
+$secondary-color: color("light-blue", "lighten-2");
+
+$roboto-font-path: "/vendor/font/roboto/";
+$icons-font-path: "/vendor/font/material-design-icons/";
+
+@import "../bower_components/materialize/sass/materialize";
+
+@font-face {
+   font-family: 'Roboto Thin';
+   src: url('/font/roboto/Roboto-Thin.ttf');
+}
+
+nav {
+   padding: 10px 20px;
+   min-height: 80px;
+}
+
+footer {
+   font-size: 12px;
+   padding: 30px 40px;
+}
+
+dt {
+   font-weight: bold;
+}
+
+.intro {
+   background-image: url('/img/background-4.jpg');
+   background-position: center;
+   background-size: cover;
+   min-height: 600px; 
+   position: relative;
+   padding-bottom: 0;
+}
+
+.intro h1 {
+   background: #000;
+   opacity: 0.7;
+   width: 100%;
+   position: absolute;
+   bottom: 0;
+   margin: 0;
+   padding: 40px;
+}
+
+.col > h2, .col > h4 {
+   font-family: 'Roboto Thin';
+}
+
+.inverse .input-field label {
+   color: #fff;
+}
+
+.inverse .input-field input[type=text] {
+   border-bottom: #fff;
+   box-shadow: 0 1px 0 0 #fff;
+}
+
+.inverse .input-field input[type=text]:focus + label {
+   color: #80d8ff;
+}
