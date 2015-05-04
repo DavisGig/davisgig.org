@@ -8,14 +8,8 @@ mixin parallaxImage(src)
       .parallax
          img(src="#{src}")
 
-mixin contentSection(inverse)
-   if inverse
-      .row.light-blue.grey-text.text-lighten-3.inverse(id!=attributes.id)
-         .container
-            .col.s8.offset-s2
-               block
-   else
-      .section.white(id!=attributes.id)
-         .row.container
-            .col.s8.offset-s2
-               block
+mixin contentSection
+   .section(id!=attributes.id, class!=attributes.class)
+      .row.container
+         .col.s8.offset-s2
+            block
