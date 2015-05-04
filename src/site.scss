@@ -17,16 +17,23 @@ $icons-font-path: "/vendor/font/material-design-icons/";
 nav {
    padding: 10px 20px;
    min-height: 80px;
+
+   a {
+      cursor: pointer;
+   }
 }
 
-header {
-   background: color('grey', 'base');
-   color: color('grey', 'lighten-5');
+header .inverse {
+   padding: 25px 0;
+
+   h4 {
+      font-size: 20pt;
+   }
 }
 
 footer {
    font-size: 12px;
-   padding: 30px 40px;
+   padding: 40px 0 20px 0;
 }
 
 dt {
@@ -35,6 +42,10 @@ dt {
 
 #sign-up-form {
    padding: 20px 0 40px 0;
+}
+
+.col > h2, .col > h4 {
+   font-family: 'Roboto Thin';
 }
 
 .intro {
@@ -54,26 +65,25 @@ dt {
       margin: 0;
       padding: 40px;
    }
+}
 
-   h4 {
-      margin-top: 40px;
+.inverse {
+   background: $primary-color;
+   color: color('grey', 'lighten-3');
+}
+
+.inverse .input-field {
+   label {
+      color: #fff;
    }
-}
 
-.col > h2, .col > h4 {
-   font-family: 'Roboto Thin';
-}
+   input[type=text] {
+      border-bottom: #fff;
+      box-shadow: 0 1px 0 0 #fff;
+   }
 
-.inverse .input-field label {
-   color: #fff;
-}
-
-.inverse .input-field input[type=text] {
-   border-bottom: #fff;
-   box-shadow: 0 1px 0 0 #fff;
-}
-
-.inverse .input-field input[type=text]:focus {
-   border-bottom: $secondary-color;
-   box-shadow: 0 1px 0 0 $secondary-color;
+   input[type=text]:focus {
+      border-bottom: $secondary-color;
+      box-shadow: 0 1px 0 0 $secondary-color;
+   }
 }
