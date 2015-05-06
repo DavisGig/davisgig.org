@@ -29,3 +29,15 @@ showMore = ->
 
 showModal = ->
    $('#sign-up-modal').openModal()
+
+register = (elem) ->
+
+   firstname = $(elem).find('.first-name').val()
+   lastname  = $(elem).find('.last-name').val()
+   email     = $(elem).find('.email').val()
+
+   $(elem).find('.first-name').val('')
+   $(elem).find('.last-name').val('')
+   $(elem).find('.email').val('')
+
+   document.location.href= 'thank-you.html'
