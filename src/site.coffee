@@ -6,6 +6,8 @@ $(document).ready ->
    # Initialize parallax components.
    $('.parallax').parallax()
 
+   $.getJSON '//www.davisgig.org/api/stats', (data) ->
+      $('#total-sign-ups').text data.contacts
 
 # Automatically the page to a specified div.
 scrollToDiv = (elem, delay) ->
