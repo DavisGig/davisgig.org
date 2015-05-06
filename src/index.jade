@@ -10,58 +10,54 @@ html(lang="en")
       link(rel="stylesheet" href="/site.css")
 
    body
-      nav
-         .nav-wrapper
-             a.left.brand-logo(href="#") 
-               | Davis
-               b Gig
-             ul.right
-                li: a(onclick="showModal()") GET INVOLVED!
+      header
+         nav
+            .nav-wrapper
+                a.left.brand-logo(href="/")
+                  | Davis
+                  b Gig
+                ul.right
+                   li: a(onclick="showModal()") GET INVOLVED!
 
-      header.row
-         .intro.white-text
-            h1 
-               | Community-owned Fiber Internet
-               br
-               small Future Worth Working For
-               
-         .row.inverse
-            .col.s8.offset-s2
-               h4.
-                  Communities across the country are bringing fast,
-                  affordable internet into their homes and we can too. By investing in a
-                  community-owned fiber optic network, we can support innovation, safeguard user
-                  privacy, encourage service competition and provide a fast, reliable internet
-                  connection to our homes, businesses and schools.
+      main
+         #banner.row
+            .intro.white-text
+               h1
+                  | Community-owned Fiber Internet
+               h3
+                  | Future Worth Working For
 
-               br
-               p.center 
-                   button.btn.btn-large.white.light-blue-text(onclick="showMore()") 
-                     i.mdi-action-info.left
-                     | Learn More
+            .row.inverse
+               .col.s8.offset-s2
+                  h4.
+                     Communities across the country are bringing fast,
+                     affordable internet into their homes and we can too. By investing in a
+                     community-owned fiber optic network, we can support innovation, safeguard user
+                     privacy, encourage service competition and provide a fast, reliable internet
+                     connection to our homes, businesses and schools.
 
-                   button.btn.btn-large.white.light-blue-text(onclick="showModal()")
-                     i.mdi-toggle-check-box.left
-                     | Sign Up
+                  br
+                  p.center
+                      button.btn.btn-large.white.light-blue-text(onclick="showMore()")
+                        i.mdi-action-info.left
+                        | Learn More
 
-      section#learn-more
-         include content/what-is-community-fiber
+                      button.btn.btn-large.white.light-blue-text(onclick="showModal()")
+                        i.mdi-toggle-check-box.left
+                        | Sign Up
 
-         +parallaxImage("/img/background-2.jpg")
-         
-         include content/good-for-davis 
+         section#learn-more
+            include content/what-is-community-fiber
 
-         +parallaxImage("/img/background-3.jpg")
+            +parallaxImage("/img/background-2.jpg")
 
-         include content/bring-fiber-to-davis
+            include content/good-for-davis
 
+            +parallaxImage("/img/background-3.jpg")
 
-      footer.light-blue-text.text-lighten-3
-         .center
-            ul
-               li Made with &hearts; in Davis, CA
-               li &copy; 2015 DavisGig
+            include content/bring-fiber-to-davis
 
+      include partials/footer
 
       .modal#sign-up-modal
          .modal-content
