@@ -2,6 +2,7 @@
   "name": "davisgig.org",
   "version": "0.0.1",
   "devDependencies": {
+    "coffee-script": "^1.9.2",
     "gulp": "^3.8.6",
     "gulp-coffee": "^2.3.1",
     "gulp-jade": "^1.0.0",
