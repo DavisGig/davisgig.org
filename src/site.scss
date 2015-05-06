@@ -46,8 +46,11 @@ nav {
 }
 
 footer {
-   font-size: 12px;
-   padding: 40px 0 20px 0;
+   border-top: 1px solid color('light-blue', 'accent-1');
+}
+
+footer.page-footer {
+   margin-top: 0;
 }
 
 dt {
