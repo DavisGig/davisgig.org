@@ -11,6 +11,7 @@
     "tests"
   ],
   "dependencies": {
-    "materialize": "~0.96.1"
+    "materialize": "~0.96.1",
+    "font-awesome": "~4.3.0"
   }
 }

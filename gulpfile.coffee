@@ -25,6 +25,9 @@ gulp.task 'init:bower', ->
    gulp.src(mainBowerFiles(['**/Roboto*.ttf', '**/Roboto*.woff*']))
       .pipe(gulp.dest('build/vendor/font/roboto'))
 
+   gulp.src(mainBowerFiles('**/fontawesome-webfont.*'))
+      .pipe(gulp.dest('build/vendor/fonts'))
+
    gulp.src(mainBowerFiles('**/Material-Design-Icons.*'))
       .pipe(gulp.dest('build/vendor/font/material-design-icons'))
 
