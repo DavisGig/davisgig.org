@@ -56,7 +56,7 @@ gulp.task 'build:coffee', ->
 
    gulp.src('src/site.coffee')
       .pipe(coffee(bare: true).on('error', gutil.log))
-      .pipe(gulp.dest('build'))
+      .pipe(gulp.dest('build/js'))
       .pipe(livereload())
 
 # Build site css file from SASS files.
@@ -64,7 +64,7 @@ gulp.task 'build:scss', ->
 
    gulp.src('src/styles/*.scss')
       .pipe(sass())
-      .pipe(gulp.dest('build'))
+      .pipe(gulp.dest('build/css'))
       .pipe(livereload())
 
 # Combined build tasks.
