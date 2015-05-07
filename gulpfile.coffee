@@ -19,9 +19,6 @@ gulp.task 'init:bower', ->
    gulp.src(mainBowerFiles('**/*.js'))
       .pipe(gulp.dest('build/vendor/js'))
 
-   gulp.src(mainBowerFiles('**/*.css'))
-      .pipe(gulp.dest('build/vendor/css'))
-
    gulp.src(mainBowerFiles(['**/Roboto*.ttf', '**/Roboto*.woff*']))
       .pipe(gulp.dest('build/vendor/font/roboto'))
 
