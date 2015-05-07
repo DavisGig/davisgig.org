@@ -14,3 +14,6 @@ $icons-font-path: "/vendor/font/material-design-icons/";
    src: url("#{$roboto-font-path}Roboto-Thin.woff");
 }
 
+$fa-font-path: "/vendor/font/font-awesome";
+
+@import "../../bower_components/font-awesome/scss/font-awesome";
