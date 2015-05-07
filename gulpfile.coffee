@@ -62,7 +62,7 @@ gulp.task 'build:coffee', ->
 # Build site css file from SASS files.
 gulp.task 'build:scss', ->
 
-   gulp.src('src/*.scss')
+   gulp.src('src/styles/*.scss')
       .pipe(sass())
       .pipe(gulp.dest('build'))
       .pipe(livereload())
@@ -75,9 +75,9 @@ gulp.task 'build', ['build:jade', 'build:coffee', 'build:scss']
 
 # Setup file watchers.
 gulp.task 'watch', ->
-   gulp.watch 'src/**/*.jade',   ['build:jade']
-   gulp.watch 'src/**/*.coffee', ['build:coffee']
-   gulp.watch 'src/**/*.scss',   ['build:scss']
+   gulp.watch 'src/**/*.jade',          ['build:jade']
+   gulp.watch 'src/**/*.coffee',        ['build:coffee']
+   gulp.watch 'src/styles/**/*.scss',   ['build:scss']
 
    # Start the live reload server.
    livereload.listen()

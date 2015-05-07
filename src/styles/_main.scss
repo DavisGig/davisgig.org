@@ -1,0 +1,59 @@
+body {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+}
+
+main {
+   flex: 1 0 auto;
+}
+
+nav {
+   padding: 10px 20px;
+   min-height: 80px;
+
+   a {
+      cursor: pointer;
+   }
+}
+
+footer {
+   border-top: 1px solid color('light-blue', 'accent-1');
+}
+
+footer.page-footer {
+   margin-top: 0;
+}
+
+dt {
+   font-weight: bold;
+}
+
+#sign-up-form {
+   padding: 20px 0 40px 0;
+}
+
+.col > h2, .col > h4 {
+   font-family: 'Roboto Thin';
+}
+
+.inverse {
+   background: $primary-color;
+   color: color('grey', 'lighten-3');
+}
+
+.inverse .input-field {
+   label {
+      color: #fff;
+   }
+
+   input[type=text] {
+      border-bottom: #fff;
+      box-shadow: 0 1px 0 0 #fff;
+   }
+
+   input[type=text]:focus {
+      border-bottom: $secondary-color;
+      box-shadow: 0 1px 0 0 $secondary-color;
+   }
+}

@@ -1,0 +1,38 @@
+#banner .inverse {
+   padding: 25px 0;
+
+   h4 {
+      font-size: 20pt;
+   }
+}
+
+#banner.row, #banner .row {
+   margin-bottom: 0;
+}
+
+.intro {
+   background-image: url('/img/background-1.jpg');
+   background-position: center;
+   background-size: cover;
+   min-height: 600px; 
+   position: relative;
+   padding-bottom: 0;
+
+   h1, h3 {
+      background: #000;
+      opacity: 0.85;
+      position: absolute;
+      margin: 0;
+   }
+
+   h1 {
+      padding: 40px;
+      bottom: 30%;
+   }
+
+   h3 {
+      padding: 20px;
+      bottom: 10%;
+   }
+
+}
