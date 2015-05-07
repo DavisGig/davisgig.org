@@ -6,7 +6,10 @@ html(lang="en")
       meta(charset="utf-8")
       title davisgig.org
 
-      link(rel="stylesheet" href="/css/site.css")
+      if development
+         link(rel="stylesheet" href="/css/site.css")
+      else
+         link(rel="stylesheet" href="/css/site.min.css")
 
    body
       header
@@ -80,10 +83,15 @@ html(lang="en")
 
       script(src="/vendor/js/jquery.js")
       script(src="/vendor/js/materialize.js")
-      script(src="/js/site.js")
 
-      script.
-         document.write('<script src="http://'
-             + (location.host || 'localhost').split(':')[0]
-             + ':35729/livereload.js"></'
-             + 'script>')
+      if development
+         script(src="/js/site.js")
+      else
+         script(src="/js/site.min.js")
+
+      if development
+         script.
+            document.write('<script src="http://'
+                + (location.host || 'localhost').split(':')[0]
+                + ':35729/livereload.js"></'
+                + 'script>')

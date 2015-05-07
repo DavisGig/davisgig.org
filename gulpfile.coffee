@@ -1,8 +1,14 @@
-gulp = require 'gulp'
+gulp   = require 'gulp'
+argv   = require('yargs').argv
+gulpif = require 'gulp-if'
 
 jade     = require 'gulp-jade'
 sass     = require 'gulp-sass'
 coffee   = require 'gulp-coffee'
+
+uglify   = require 'gulp-uglify'
+cssmin   = require 'gulp-cssmin'
+rename   = require 'gulp-rename'
 
 livereload = require 'gulp-livereload'
 watch      = require 'gulp-watch'
@@ -10,6 +16,7 @@ gutil      = require 'gulp-util'
 
 mainBowerFiles = require 'main-bower-files'
 
+rootdir = if argv.production then 'prod' else 'dev'
 
 #--------- Initialization Tasks ---------------------------
 
@@ -17,22 +24,22 @@ mainBowerFiles = require 'main-bower-files'
 gulp.task 'init:bower', ->
 
    gulp.src(mainBowerFiles('**/*.js'))
-      .pipe(gulp.dest('build/vendor/js'))
+      .pipe(gulp.dest("build/#{rootdir}/vendor/js"))
 
    gulp.src(mainBowerFiles(['**/Roboto*.ttf', '**/Roboto*.woff*']))
-      .pipe(gulp.dest('build/vendor/font/roboto'))
+      .pipe(gulp.dest("build/#{rootdir}/vendor/font/roboto"))
 
    gulp.src(mainBowerFiles('**/fontawesome-webfont.*'))
-      .pipe(gulp.dest('build/vendor/font/font-awesome'))
+      .pipe(gulp.dest("build/#{rootdir}/vendor/font/font-awesome"))
 
    gulp.src(mainBowerFiles('**/Material-Design-Icons.*'))
-      .pipe(gulp.dest('build/vendor/font/material-design-icons'))
+      .pipe(gulp.dest("build/#{rootdir}/vendor/font/material-design-icons"))
 
 # Copy additional resources to the build directory.
 gulp.task 'init:assets', ->
 
    gulp.src('assets/**/*')
-      .pipe(gulp.dest('build'))
+      .pipe(gulp.dest("build/#{rootdir}"))
 
 # Combined initialization tasks.
 gulp.task 'init', ['init:bower', 'init:assets']
@@ -43,26 +50,48 @@ gulp.task 'init', ['init:bower', 'init:assets']
 # Build site html file from jade templates.
 gulp.task 'build:jade', ->
 
-   gulp.src(['src/index.jade', 'src/thank-you.jade'])
-      .pipe(jade(pretty: true))
-      .pipe(gulp.dest('build'))
-      .pipe(livereload())
+   src = gulp.src(['src/index.jade', 'src/thank-you.jade'])
+
+   if argv.production
+      src.pipe(jade())
+         .pipe(gulp.dest("build/#{rootdir}"))
+   else
+      src.pipe(jade(
+            pretty: true
+            locals:
+               development: true
+         ))
+         .pipe(gulp.dest("build/#{rootdir}"))
+         .pipe(livereload())
+
 
 # Build site javascript from coffeescript files.
 gulp.task 'build:coffee', ->
 
-   gulp.src('src/site.coffee')
+   src = gulp.src('src/site.coffee')
       .pipe(coffee(bare: true).on('error', gutil.log))
-      .pipe(gulp.dest('build/js'))
-      .pipe(livereload())
+
+   if argv.production
+      src.pipe(uglify())
+         .pipe(rename(suffix: '.min'))
+         .pipe(gulp.dest("build/#{rootdir}/js"))
+   else
+      src.pipe(gulp.dest("build/#{rootdir}/js"))
+         .pipe(livereload())
 
 # Build site css file from SASS files.
 gulp.task 'build:scss', ->
 
-   gulp.src('src/styles/*.scss')
+   src = gulp.src('src/styles/*.scss')
       .pipe(sass())
-      .pipe(gulp.dest('build/css'))
-      .pipe(livereload())
+
+   if argv.production
+      src.pipe(cssmin())
+         .pipe(rename(suffix: '.min'))
+         .pipe(gulp.dest("build/#{rootdir}/css"))
+   else
+      src.pipe(gulp.dest("build/#{rootdir}/css"))
+         .pipe(livereload())
 
 # Combined build tasks.
 gulp.task 'build', ['build:jade', 'build:coffee', 'build:scss']
