@@ -1,56 +1,6 @@
-include mixins
+extends ./layout.jade
 
-doctype html
-html(lang="en")
-   head
-      meta(charset="utf-8")
-      title davisgig.org
-
-      link(rel="stylesheet" href="/vendor/css/font-awesome.css")
-      link(rel="stylesheet" href="/site.css")
-
-   body
-      header
-         nav
-            .nav-wrapper
-               a.left.brand-logo(href="/")
-                  | Davis
-                  b Gig
-               ul.right
-                  li: a(onclick="showModal()") GET INVOLVED!
-
-      main
-         +contentSection(id='thank-you')
-            h2 Thanks for signing up!
-
-      include partials/footer
-
-      .modal#sign-up-modal
-         .modal-content
-            h4 
-               | Interested? 
-               small Let us know!
- 
-            p. 
-               Davis residents, if you would be willing to vote for this,
-               please register your support, and we'll keep you up-to-date with
-               news as this effort moves forward. DavisGig is a
-               community-driven effort. 
-
-            .row
-               include partials/sign-up-form
-
-         .modal-footer
-            btn.btn.modal-action.modal-close.waves-effect.light-blue(onclick="register('#sign-up-modal')")
-               i.mdi-navigation-check.left
-               | Sign Me Up
-
-      script(src="/vendor/js/jquery.js")
-      script(src="/vendor/js/materialize.js")
-      script(src="/site.js")
-
-      script.
-         document.write('<script src="http://'
-             + (location.host || 'localhost').split(':')[0]
-             + ':35729/livereload.js"></'
-             + 'script>')
+block content
+   main
+      +contentSection(id='thank-you')
+         h2 Thanks for signing up!

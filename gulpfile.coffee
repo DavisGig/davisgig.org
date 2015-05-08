@@ -54,7 +54,7 @@ gulp.task 'init', ['init:bower', 'init:assets']
 # Build site html file from jade templates.
 gulp.task 'build:jade', ->
 
-   src = gulp.src(['src/index.jade', 'src/thank-you.jade'])
+   src = gulp.src(['src/*.jade', '!src/layout.jade', '!src/mixins.jade'])
 
    if argv.production
       src.pipe(jade())
