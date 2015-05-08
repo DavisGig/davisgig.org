@@ -9,6 +9,7 @@ coffee   = require 'gulp-coffee'
 uglify   = require 'gulp-uglify'
 cssmin   = require 'gulp-cssmin'
 rename   = require 'gulp-rename'
+concat   = require 'gulp-concat'
 
 livereload = require 'gulp-livereload'
 watch      = require 'gulp-watch'
@@ -24,16 +25,19 @@ rootdir = if argv.production then 'prod' else 'dev'
 gulp.task 'init:bower', ->
 
    gulp.src(mainBowerFiles('**/*.js'))
-      .pipe(gulp.dest("build/#{rootdir}/vendor/js"))
+      .pipe(concat('vendor.js'))
+      .pipe(gulpif(argv.production, uglify()))
+      .pipe(gulpif(argv.production, rename(suffix: '.min')))
+      .pipe(gulp.dest("build/#{rootdir}/js"))
 
    gulp.src(mainBowerFiles(['**/Roboto*.ttf', '**/Roboto*.woff*']))
-      .pipe(gulp.dest("build/#{rootdir}/vendor/font/roboto"))
+      .pipe(gulp.dest("build/#{rootdir}/font/roboto"))
 
    gulp.src(mainBowerFiles('**/fontawesome-webfont.*'))
-      .pipe(gulp.dest("build/#{rootdir}/vendor/font/font-awesome"))
+      .pipe(gulp.dest("build/#{rootdir}/font/font-awesome"))
 
    gulp.src(mainBowerFiles('**/Material-Design-Icons.*'))
-      .pipe(gulp.dest("build/#{rootdir}/vendor/font/material-design-icons"))
+      .pipe(gulp.dest("build/#{rootdir}/font/material-design-icons"))
 
 # Copy additional resources to the build directory.
 gulp.task 'init:assets', ->

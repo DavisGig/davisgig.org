@@ -4,8 +4,8 @@
 $primary-color: color("light-blue", "base");
 $secondary-color: color("light-blue", "lighten-2");
 
-$roboto-font-path: "/vendor/font/roboto/";
-$icons-font-path: "/vendor/font/material-design-icons/";
+$roboto-font-path: "/font/roboto/";
+$icons-font-path: "/font/material-design-icons/";
 
 @import "../../bower_components/materialize/sass/materialize";
 
@@ -14,6 +14,6 @@ $icons-font-path: "/vendor/font/material-design-icons/";
    src: url("#{$roboto-font-path}Roboto-Thin.woff");
 }
 
-$fa-font-path: "/vendor/font/font-awesome";
+$fa-font-path: "/font/font-awesome";
 
 @import "../../bower_components/font-awesome/scss/font-awesome";
