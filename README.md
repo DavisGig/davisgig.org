@@ -8,6 +8,6 @@
 
 ## running
 
-* `cd build/`
+* `cd build/dev`
 * `python -m http.server`
 * view app at [http://localhost:8000](http://localhost:8000)
