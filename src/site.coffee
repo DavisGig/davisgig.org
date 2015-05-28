@@ -34,11 +34,15 @@ showModal = ->
 
 register = (elem) ->
 
+   # Get the form data from the specified element.
    data =
       firstName: $(elem).find('.first-name').val()
       lastName:  $(elem).find('.last-name').val()
       email:     $(elem).find('.email').val()
 
+   # TODO: validate form data before registering.
+
+   # Call the sign-up endpoint to register the user.
    $.ajax
       type: 'POST'
       url:  '//www.davisgig.org/api/sign-up'
