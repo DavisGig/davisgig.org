@@ -6,7 +6,17 @@ footer.page-footer
                | Support Davis
                b Gig
 
-            button.btn Donate Now
+            p.white-text.
+               Your tax-deductible contribution to the Davis Community Network
+               will be earmarked for efforts to bring municipal Internet to Davis. If you need
+               an acknowledgement of your contribution for tax purposes, please send a note to
+               <a href="mailto:admin@dcn.org">admin@dcn.org</a> when you make the
+               contribution.
+
+            form(action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top")
+               input(type="hidden" name="cmd" value="_s-xclick")
+               input(type="hidden" name="hosted_button_id" value="Q63Q2HLUX568A")
+               button.btn Donate Now
 
          .col.l4.offset-l2.s12
              h5.white-text
