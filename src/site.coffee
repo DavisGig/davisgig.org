@@ -34,12 +34,16 @@ showModal = ->
 
 register = (elem) ->
 
-   firstname = $(elem).find('.first-name').val()
-   lastname  = $(elem).find('.last-name').val()
-   email     = $(elem).find('.email').val()
+   data =
+      firstName: $(elem).find('.first-name').val()
+      lastName:  $(elem).find('.last-name').val()
+      email:     $(elem).find('.email').val()
 
-   $(elem).find('.first-name').val('')
-   $(elem).find('.last-name').val('')
-   $(elem).find('.email').val('')
-
-   document.location.href= 'thank-you.html'
+   $.ajax
+      type: 'POST'
+      url:  '//www.davisgig.org/api/sign-up'
+      data: JSON.stringify(data)
+      dataType: 'json'
+      contentType: 'application/json; charset=utf-8'
+      success: (data) ->
+         document.location.href= 'thank-you.html'
