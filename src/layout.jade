@@ -4,6 +4,8 @@ doctype html
 html(lang="en")
    head
       meta(charset="utf-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
       title davisgig.org
 
       if development
@@ -18,7 +20,7 @@ html(lang="en")
                 a.left.brand-logo(href="/")
                   | Davis
                   b Gig
-                ul.right
+                ul.right.hide-on-med-and-down
                    li: a(onclick="showModal()") GET INVOLVED!
 
       block content
