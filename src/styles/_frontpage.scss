@@ -36,3 +36,16 @@
    }
 
 }
+
+@media #{$small-and-down} {
+   .intro {
+      h1 {
+         font-size: 3.0em;
+         padding: 10px;
+      }
+      h3 {
+         font-size: 2.0em;
+         padding: 5px;
+      }
+   }
+}
