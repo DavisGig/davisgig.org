@@ -8,6 +8,7 @@
     "gulp-concat": "^2.5.2",
     "gulp-cssmin": "^0.1.7",
     "gulp-if": "^1.2.5",
+    "gulp-image-resize": "^0.6.0",
     "gulp-jade": "^1.0.0",
     "gulp-livereload": "^3.8.0",
     "gulp-rename": "^1.2.2",

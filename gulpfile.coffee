@@ -10,6 +10,7 @@ uglify   = require 'gulp-uglify'
 cssmin   = require 'gulp-cssmin'
 rename   = require 'gulp-rename'
 concat   = require 'gulp-concat'
+imageResize = require 'gulp-image-resize'
 
 livereload = require 'gulp-livereload'
 watch      = require 'gulp-watch'
@@ -40,13 +41,17 @@ gulp.task 'init:bower', ->
       .pipe(gulp.dest("build/#{rootdir}/font/material-design-icons"))
 
 # Copy additional resources to the build directory.
-gulp.task 'init:assets', ->
+gulp.task 'init:img', ->
 
-   gulp.src('assets/**/*')
+   gulp.src('assets/img/*')
+      .pipe(imageResize(
+          width: 1920
+          upscale: false
+      ))
       .pipe(gulp.dest("build/#{rootdir}"))
 
 # Combined initialization tasks.
-gulp.task 'init', ['init:bower', 'init:assets']
+gulp.task 'init', ['init:bower', 'init:img']
 
 
 #--------- Build Tasks ------------------------------------
