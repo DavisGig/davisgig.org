@@ -48,7 +48,7 @@ gulp.task 'init:img', ->
           width: 1920
           upscale: false
       ))
-      .pipe(gulp.dest("build/#{rootdir}"))
+      .pipe(gulp.dest("build/#{rootdir}/img"))
 
 # Combined initialization tasks.
 gulp.task 'init', ['init:bower', 'init:img']
