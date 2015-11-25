@@ -1,16 +1,33 @@
 +contentSection(id='contact-city-council')
 
+  .template(style="display:none")
+    include ./contact-city-council-body.txt
+
   h4 Contact Your Local City Council Members
 
   form.col.s12
-     .input-field
-        input.name(type="text" class="validate")
-        label Enter Your Name
+    .input-field
+      input.name.validate(type="text")
+      label Enter Your Name
 
-     .input-field
-        textarea.materialize-textarea.email-content(class="validate")
+    .content.hide
+
+      .input-field
+        input.to(disabled type="text" value="council@example.org")
+        label To:
+
+      .input-field
+        input.cc(disabled type="text" value="citycouncilemail@davisgig.org")
+        label Cc:
+
+      .input-field
+        input.subject(type="text" value="Please Help Support Davis Fiber")
+        label Subject:
+
+      .input-field
+        textarea.materialize-textarea.body.validate
         label Feel Free to Make Changes
 
-     button.btn 
-       i.fa.fa-send
-       | &nbsp; Send
+      a.btn.send
+        i.fa.fa-send
+        | &nbsp; Compose In Your Email Client
